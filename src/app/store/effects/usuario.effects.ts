@@ -8,7 +8,7 @@ import {of} from "rxjs";
 
 
 @Injectable()
-export class UsuariosEffects {
+export class UsuarioEffects {
 
   constructor(
     private action$: Actions,
@@ -17,20 +17,20 @@ export class UsuariosEffects {
   ) {
   }
 
-  cargarUsuarios$ = createEffect(
+  cargarUsuario$ = createEffect(
     () => this.action$.pipe(
-      ofType( usuariosActions.cargarUsuarios ),
+      ofType( usuariosActions.cargarUsuario ),
       // tap( data => console.log('effect tap ', data)),
       mergeMap(
-        () => this.usuariosService.getUsers()
+        (action ) => this.usuariosService.getUserById(action.id)
           .pipe(
             // tap( data => console.log('getUsers effect', data))
-            map(users => usuariosActions.cargarUsuariosSuccess({ usuarios: users}) ),
-            catchError( err => of(usuariosActions.cargarUsuariosError({ payload: err })))
+            map(user => usuariosActions.cargarUsuarioSuccess({ usuario: user})),
+            catchError( err => of(usuariosActions.cargarUsuarioError({ payload: err })))
           )
       )
 
-      )
+    )
   );
 
 }
