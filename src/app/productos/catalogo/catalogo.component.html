@@ -1,0 +1,33 @@
+<div class="alert alert-info text-center" role="alert"
+     *ngIf="loading">
+  <h4 class="alert-heading">Cargando...</h4>
+  <p>
+    <i class="fa fa-sync fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0"></p>
+</div>
+
+<div class="alert alert-danger text-center" role="alert"
+     *ngIf="error">
+  <h4 class="alert-heading">Error</h4>
+  <pre>
+    {{ error|json }}
+  </pre>
+  <p class="mb-0"></p>
+</div>
+
+<div class="card-columns">
+  <div class="card" *ngFor="let product of productos">
+    <img [src]="product.image" class="card-img-top" >
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title}} {{ product.price}}</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural .</p>
+      <p class="card-text">
+        <span class="text-muted">
+          ID: {{ product.id }}
+        </span>
+      </p>
+    </div>
+  </div>
+
+</div>
