@@ -13,10 +13,12 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { EffectsModule } from '@ngrx/effects';
 import {EffectsArray} from "./store/effects";
 import {appReducers} from "./store/app.reducers";
+import { CatalogoComponent } from './productos/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CatalogoComponent
   ],
   imports: [
     BrowserModule,
