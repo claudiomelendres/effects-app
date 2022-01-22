@@ -3,10 +3,10 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { cargarUsuarios, cargarUsuariosSuccess, cargarUsuariosError } from '../actions';
 
 export interface UsuariosState {
-  users: Usuario[],
-  loaded: boolean,
-  loading: boolean,
-  error: any
+  users   : Usuario[],
+  loaded  : boolean,
+  loading : boolean,
+  error   : any
 }
 
 export const usuariosInitialState: UsuariosState = {

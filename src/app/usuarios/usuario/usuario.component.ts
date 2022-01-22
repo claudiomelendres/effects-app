@@ -12,7 +12,7 @@ import { Usuario } from "../../models/usuario.model";
 })
 export class UsuarioComponent implements OnInit {
 
-  usuario: Usuario | null | undefined;
+  usuario?: Usuario;
   loading: boolean = false;
   error: any;
 

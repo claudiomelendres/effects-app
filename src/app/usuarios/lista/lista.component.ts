@@ -26,13 +26,13 @@ export class ListaComponent implements OnInit {
     //   })
 
     this.store.select('usuarios').subscribe( ({ users, loading, error }) => {
-      console.log('selector', users);
+      // console.log('selector', users);
       this.usuarios = users;
       this.loading = loading;
       this.error = error;
     })
 
-    console.log('usuarios: ', this.usuarios)
+    // console.log('usuarios: ', this.usuarios)
     this.store.dispatch( cargarUsuarios() )
   }
 

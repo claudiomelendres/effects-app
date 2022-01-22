@@ -20,11 +20,11 @@ export class UsuariosEffects {
   cargarUsuarios$ = createEffect(
     () => this.action$.pipe(
       ofType( usuariosActions.cargarUsuarios ),
-      // tap( data => console.log('effect tap ', data)),
+      //tap( data => console.log('effect tap ', data)),
       mergeMap(
         () => this.usuariosService.getUsers()
           .pipe(
-            // tap( data => console.log('getUsers effect', data))
+            //tap( data => console.log('getUsers effect', data)),
             map(users => usuariosActions.cargarUsuariosSuccess({ usuarios: users}) ),
             catchError( err => of(usuariosActions.cargarUsuariosError({ payload: err })))
           )
